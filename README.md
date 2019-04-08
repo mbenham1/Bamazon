@@ -21,7 +21,7 @@ Receipt:
 
 <br>
 
-Database Updated:  
+Database Updated: "Putter" stock_quantity decreased by 10 
 
 ![change](images/sql-change.png)
 
