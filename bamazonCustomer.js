@@ -103,12 +103,22 @@ function whatDoYouWantToDo() {
                 if (err) {
                   console.log(err);
                 } else {
-                  console.log(chalk.green("--------RECEIPT---------- " + "\r\n" +
-                    "Item: " + product + "\r\n" +
-                    "Price: $" + price + "\r\n" +
-                    "Quantity: " + chosenQuantity + "\r\n" +
-                    "-------------------------" + "\r\n" +
-                    "Total Sale: $" + sale));
+
+                  var table = new Table({
+                    head: ['Item', 'Price', 'Quantity', 'Total']
+                  });
+              
+                  for (var i = 0; i < response.length; i++) {
+                    table.push([product, "$" + price, chosenQuantity, "$" + sale]);
+                  }
+              
+                  console.log(table.toString());
+                  // console.log(chalk.green("--------RECEIPT---------- " + "\r\n" +
+                  //   "Item: " + product + "\r\n" +
+                  //   "Price: $" + price + "\r\n" +
+                  //   "Quantity: " + chosenQuantity + "\r\n" +
+                  //   "-------------------------" + "\r\n" +
+                  //   "Total Sale: $" + sale));
                     anotherPurchase();
                 }
               }
